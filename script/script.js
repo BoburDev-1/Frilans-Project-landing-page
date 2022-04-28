@@ -78,18 +78,16 @@ function feedbackAjax(e) {
         });
 
         ajax.onload = function() {
-            console.log("ketdi ");
+     
             if (ajax.status == 200 && ajax.readyState == 4) {
-                console.log("data ", ajax.response);
+            
                 if (ajax.response === "ok") {
                     feedbackModal.style.display = "none";
                     feedbackBtn.disabled = true;
                     alert("Xabaringiz yuborildi");
-                    feedbackForm.reset();
-                    console.log(ajax.response);
+                    feedbackForm.reset();               
                 } else {
-                    alert("Raqamingizni yuboriwda xatolik yuz berdi ");
-                    console.log("error ", ajax.response);
+                    alert("Raqamingizni yuboriwda xatolik yuz berdi ");             
                 }
             }
         };
@@ -151,15 +149,13 @@ function sendPhoneAjax(e) {
     } else {
         ajax.onload = function() {
             if (ajax.status == 200 && ajax.readyState == 4) {
-                console.log(ajax.response);
+         
                 if (ajax.response) {
                     sendPhone.disabled = true;
                     alert("Raqamingiz yuborildi");
-                    phone.value = "";
-                    console.log("ok");
+                    phone.value = "";             
                 } else {
-                    alert("Raqamingizni yuboriwda xatolik yuz berdi ");
-                    console.log("error");
+                    alert("Raqamingizni yuboriwda xatolik yuz berdi ");                
                 }
             }
         };
@@ -212,13 +208,11 @@ document.getElementById("defaultOpen").click();
 let slideIndex = 1;
 showSlides(slideIndex);
 
-function plusSlides(n) {
-    console.log(n, " bosildi");
+function plusSlides(n) {    
     showSlides((slideIndex += n));
 }
 
-function currentSlide(n) {
-    console.log("bosildi ", n);
+function currentSlide(n) {    
     showSlides((slideIndex = n));
 }
 
@@ -308,7 +302,6 @@ function closeMenuFunc() {
     menu.style.width = "0";
     openMenu.style.display = "block";
     closeMenu.style.display = "none";
-    console.log("bosildi ");
 }
 
 const makeNavLinksSmooth = () => {
@@ -340,8 +333,7 @@ const spyScrolling = () => {
 
         for (let s in sections)
             if (sections.hasOwnProperty(s) && sections[s].offsetTop <= scrollPos) {
-                const id = sections[s].id;
-                console.log(id);
+                const id = sections[s].id;            
                 document.querySelector(".active_link").classList.remove("active_link");
                 document
                     .querySelector("a[href*=" + id + "]")
